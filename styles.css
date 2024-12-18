@@ -1,0 +1,46 @@
+/* Set up light and dark themes */
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.auto {
+    /* Adjust to system preference */
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #000000);
+}
+
+/* Button styles */
+#theme-toggle-container {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+}
+
+#theme-toggle {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+}
+
+#theme-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Transition for smooth theme changes */
+body {
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}

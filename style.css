@@ -1,25 +1,48 @@
-@media (prefers-color-scheme: dark) {
-	body {
-		background-color: #444746;
-	}
-	h1, h2, h3, h4, h5, h6, p {
-		color: white;
-	}
+/* Base styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-@media (prefers-color-scheme: light) {
-	body {
-		background-color: white;
-	}
-	h1, h2, h3, h4, h5, h6, p {
-		color: white;
-	}
+/* Light theme */
+body.light {
+    background-color: #ffffff;
+    color: #000000;
 }
 
-.app_border {
-	border-top: 10px;
-	border-bottom: 10px;
-	border-left: 10px;
-	border-right: 10px;
-	border-color: white;
+/* Dark theme */
+body.dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Auto theme (matches OS preference) */
+body.auto-light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.auto-dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Button styling */
+#themeToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #0078d7;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#themeToggle:hover {
+    background: #005a9e;
 }
