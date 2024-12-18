@@ -14,38 +14,55 @@
 			}
 		</style>
 		<script>
-			function setCookie(darkmode) {
-			  let expires = "expires=" + d.toUTCString();
-			  document.cookie = darkmode ;
-			}
-			
-			function getCookie(cname) {
-			  let name = cname + "=";
-			  let decodedCookie = decodeURIComponent(document.cookie);
-			  let ca = decodedCookie.split(';');
-			  for(let i = 0; i < ca.length; i++) {
-				let c = ca[i];
-				while (c.charAt(0) == ' ') {
-				  c = c.substring(1);
+			// function to set cookie
+			function setCookie(name, value, days) {
+				var expires = "";
+				if (days) {
+					var date = new Date();
+					date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+					expires = "; expires=" + date.toUTCString();
 				}
-				if (c.indexOf(name) == 0) {
-				  return c.substring(name.length, c.length);
+				document.cookie = name + "=" + (value || "") + expires + "; path=/";
+			}
+
+			// function to get cookie value
+			function getCookie(name) {
+				var nameEQ = name + "=";
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
 				}
-			  }
-			  return "";
+				return null;
 			}
-			
-			function checkCookie() {
-			  let user = getCookie("username");
-			  if (user != "") {
-				alert("Welcome again " + user);
-			  } else {
-				 user = prompt("Please enter your name:","");
-				 if (user != "" && user != null) {
-				   setCookie("username", user, 30);
-				 }
-			  }
+
+			// function to toggle theme
+			function toggleTheme() {
+				var theme = getCookie("theme");
+				if (theme === "dark") {
+					setCookie("theme", "light", 365);
+					// applies light theme
+				} else if (theme === "light") {
+					setCookie("theme", "auto", 365);
+					// applies auto theme
+				} else {
+					setCookie("theme", "dark", 365);
+					// applies dark theme
+				}
 			}
+
+			// initialize theme on page load
+			window.onload = function() {
+				var theme = getCookie("theme");
+				if (theme === "dark") {
+					// apply dark
+				} else if (theme === "light") {
+					// apply light
+				} else {
+					// apply auto theme
+				}
+			};
 			</script>
 	</head>
 
@@ -60,7 +77,7 @@
 				document.cookie = "darkmode= ; expires=Thu, 31 Dec 9999 23:59:59 UTC; path=/;"
 		  	}
 		  </script>
-		<button onclick="colorToggle()">Display: </button>
+		<button onclick="toggleTheme()">Display: </button>
 	</body>
 
 </html>
