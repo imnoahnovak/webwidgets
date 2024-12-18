@@ -8,6 +8,7 @@
 			body {
 				font-family: Roboto, Arial, sans-serif;
 			}
+
 			.darkmode {
 				background-color: #444746;
 				color: white;
@@ -53,7 +54,7 @@
 			}
 
 			// initialize theme on page load
-			window.onload = function() {
+			window.onload = function () {
 				var theme = getCookie("theme");
 				if (theme === "dark") {
 					// apply dark
@@ -63,20 +64,13 @@
 					// apply auto theme
 				}
 			};
-			</script>
+		</script>
 	</head>
 
-	<body onload="checkCookie()">
+	<body>
 		<div class=app_border>
 			<h1>Good</h1>
 		</div>
-		<script>
-			function colorToggle() {
-				var element = document.body;
-				element.classList.toggle("darkmode");
-				document.cookie = "darkmode= ; expires=Thu, 31 Dec 9999 23:59:59 UTC; path=/;"
-		  	}
-		  </script>
 		<button onclick="toggleTheme()">Display: </button>
 	</body>
 
