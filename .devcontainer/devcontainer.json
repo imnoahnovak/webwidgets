@@ -1,0 +1,13 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/nordcominc/devcontainer-features/android-sdk:1": {},
+    "ghcr.io/kreemer/features/chrometesting:1": {
+      "version": "Stable"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/devcontainers-extra/features/live-server:1": {},
+    "ghcr.io/itsmechlark/features/postgresql:1": {}
+  }
+}
