@@ -52,7 +52,7 @@ function setupThemeToggle() {
             newTheme = "light";
         }
 
-        setCookie("theme", newTheme, 7); // Save the theme in a cookie for 7 days
+        setCookie("theme", newTheme, 365 * 10); // Save the theme in a cookie for 10 years
         applyTheme(newTheme);
     });
 }
