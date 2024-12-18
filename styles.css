@@ -1,18 +1,38 @@
-/* Set up light and dark themes */
+/* Base styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme */
 body.light {
     background-color: #ffffff;
     color: #000000;
 }
 
+/* Dark theme */
 body.dark {
     background-color: #000000;
     color: #ffffff;
 }
 
+/* Auto theme (matches OS preference) */
 body.auto {
-    /* Adjust to system preference */
     background-color: var(--bg-color, #ffffff);
     color: var(--text-color, #000000);
+}
+
+/* Auto theme light and dark */
+body.auto-light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.auto-dark {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 /* Button styles */
@@ -32,15 +52,9 @@ body.auto {
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-transform: capitalize;
+    transition: background-color 0.3s;
 }
 
 #theme-toggle:hover {
     background-color: #0056b3;
-}
-
-/* Transition for smooth theme changes */
-body {
-    transition: background-color 0.3s, color 0.3s;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, color 0.3s;
 }
