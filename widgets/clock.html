@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Widgets</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../themeCookie.js"></script>
+</head>
+
 <body onload="startTime()">
 
-<button type="button">Home</button>
+<div id="home-button">
+  <button type="button">Home</button>
+</div>
 
 <div id="txt"></div>
 
-<script>
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-}
+<script src="/widgets/scripts/clock.js"></script>
 
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-</script>
+  <!-- Theme toggle button -->
+  <div id="theme-toggle-container">
+    <button id="theme-toggle"></button>
+  </div>
+
+
 
 </body>
 </html>
