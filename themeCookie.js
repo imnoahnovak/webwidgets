@@ -17,8 +17,13 @@ function getCookie(name) {
 
 // Apply the theme to the document
 function applyTheme(theme) {
-    document.body.classList.remove("light", "dark", "auto");
-    document.body.classList.add(theme);
+    document.body.classList.remove("light", "dark", "auto", "auto-light", "auto-dark");
+    if (theme === "auto") {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.body.classList.add(prefersDark ? "auto-dark" : "auto-light");
+    } else {
+        document.body.classList.add(theme);
+    }
     const toggleButton = document.getElementById("theme-toggle");
     toggleButton.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
 }
@@ -26,14 +31,6 @@ function applyTheme(theme) {
 // Initialize the theme from the cookie or default to "auto"
 function initTheme() {
     const savedTheme = getCookie("theme") || "auto";
-
-    // Set a default theme based on system preferences if "auto" is selected
-    if (savedTheme === "auto") {
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.body.style.setProperty("--bg-color", prefersDark ? "#000000" : "#ffffff");
-        document.body.style.setProperty("--text-color", prefersDark ? "#ffffff" : "#000000");
-    }
-
     applyTheme(savedTheme);
 }
 
