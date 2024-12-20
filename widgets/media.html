@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../cookies/themeCookie.js" defer></script>
+    <script src="/widgets/scripts/media.js"></script>
+    <title>Media Player | Web Widgets</title>
+</head>
+<body>
+    <button onclick="window.location.href='../index.html'">Home</button>
+    <h1>Media Player</h1>
+    <div id="media-container">
+        <video id="video" controls>
+            <source src="/widgets/media/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <audio id="audio" controls>
+            <source src="/widgets/media/audio.mp3" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+    <div id="media-controls">
+        <button id="play-pause">Play</button>
+        <input type="range" id="seek-bar" value="0">
+        <button id="mute">Mute</button>
+        <input type="range" id="volume-bar" min="0" max="1" step="0.01" value="1">
+    </div>
+    <div id="media-time">
+        <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+    </div>
+    <div id="media-speed">
+        <button id="speed-0.5">0.5x</button>
+        <button id="speed-1">1x</button>
+        <button id="speed-1.5">1.5x</button>
+        <button id="speed-2">2x</button>
+    </div>
+    <div id="media-playlist">
+        <h2>Playlist</h2>
+        <ul>
+            <li><a href="/widgets/media/video.mp4">Video</a></li>
+            <li><a href="/widgets/media/audio.mp3">Audio</a></li>
+        </ul>
+    </div>
+    <div id="media-playlist-controls">
+        <button id="previous">Previous</button>
+        <button id="next">Next</button>
+    </div>
+    <div id="media-playlist-info">
+        <span id="playlist-current">0</span> / <span id="playlist-total">0</span>
+    </div>
+    <div id="media-playlist-shuffle">
+        <button id="shuffle">Shuffle</button>
+    </div>
+    <div id="media-playlist-repeat">
+        <button id="repeat">Repeat</button>
+    </div>
+    <div id="media-playlist-clear">
+        <button id="clear">Clear</button>
+    </div>
+    <div id="media-playlist-add">
+        <button id="add">Add</button>
+    </div>
+    <div id="media-playlist-remove">
+        <button id="remove">Remove</button>
+    </div>
+    <div id="media-playlist-save">
+        <button id="save">Save</button>
+    </div>
+    <div id="media-playlist-load">
+        <button id="load">Load</button>
+    </div>
+    <div id="media-playlist-export">
+        <button id="export">Export</button>
+    </div>
+    <div id="media-playlist-import">
+        <button id="import">Import</button>
+    </div>
+    <div id="media-playlist-search">
+        <input type="text" id="search" placeholder="Search...">
+    </div>
+    <div id="media-playlist-sort">
+        <button id="sort">Sort</button>
+    </div>
+    <div id="media-playlist-filter">
+        <button id="filter">Filter</button>
+    </div>
+    <div id="media-playlist-reverse">
+        <button id="reverse">Reverse</button>
+    </div>
+    <div id="media-playlist-random">
+        <button id="random">Random</button>
+    </div>
+    <div id="media-playlist-reset">
+        <button id="reset">Reset</button>
+    </div>
+    <div id="media-playlist-undo">
+        <button id="undo">Undo</button>
+    </div>
+    <div id="media-playlist-redo">
+        <button id="redo">Redo</button>
+    </div>
+    <div id="media-playlist-copy">
+        <button id="copy">Copy</button>
+    </div>
+    <div id="media-playlist-cut">
+        <button id="cut">Cut</button>
+    </div>
+    <div id="media-playlist-paste">
+        <button id="paste">Paste</button>
+    </div>
+    <div id="media-playlist-duplicate">
+        <button id="duplicate">Duplicate</button>
+    </div>
+    <div id="media-playlist-merge">
+        <button id="merge">Merge</button>
+    </div>
+    <div id="media-playlist-split">
+        <button id="split">Split</button>
+    </div>
+    <div id="media-playlist-convert">
+        <button id="convert">Convert</button>
+    </div>
+    <div id="media-playlist-compress">
+        <button id="compress">Compress</button>
+    </div>
+    <div id="media-playlist-extract">
+        <button id="extract">Extract</button>
+    </div>
+    <div id="media-playlist-compare">
+        <button id="compare">Compare</button>
+</body>
+</html>
