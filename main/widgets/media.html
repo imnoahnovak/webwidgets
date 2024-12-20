@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../cookies/themeCookie.js" defer></script>
+    <script src="/main/widgets/scripts/media.js"></script>
+    <title>Media Player | Web Widgets</title>
+</head>
+<body>
+    <button onclick="window.location.href='/main/index.html'">Home</button>
+    <h1>Media Player</h1>
+    <div id="media-container">
+        <input type="file" id="fileInput" accept="video/*,audio/*">
+        <video id="mediaElement" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <center>
+        <div id="notification" style="position: fixed; bottom: -100px; right: 10px; background-color: #333; color: white; text-align: center; padding: 10px; display: none; opacity: 1; transition: bottom 1s, opacity 1s; border-radius: 5px; max-width: 300px;">
+            <p style="margin: 0; font-size: 12px;">Note: media <i>may</i> be temporarily stored locally on your device for features (like playlists, metadata, etc) and for a faster and better experience. <strong>None of your data is read by anyone.</strong> For more details, click <a href="../privacy.html" style="color: #4CAF50;">here</a></p>
+            <button onclick="this.parentElement.style.display='none'" style="margin-top: 5px; font-size: 12px;">Dismiss</button>
+        </div>
+        </center>
+</body>
+</html>
