@@ -58,3 +58,1115 @@ body.auto-dark {
 #theme-toggle:hover {
     background-color: #0056b3;
 }
+
+/* Iframe styles */
+#iframe {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    border: none;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #iframe {
+        height: 70vh; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #iframe {
+        height: 50vh; /* Adjust height for very small screens */
+    }
+}
+
+/* Base styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme */
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dark theme */
+body.dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Auto theme (matches OS preference) */
+body.auto {
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #000000);
+}
+
+/* Auto theme light and dark */
+body.auto-light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.auto-dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Button styles */
+#theme-toggle-container {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+}
+
+#theme-toggle {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+    transition: background-color 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Editor styles */
+.editor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.editor-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.editor-header button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+    transition: background-color 0.3s;
+}
+
+.editor-header button:hover {
+    background-color: #0056b3;
+}
+
+.editor-content {
+    flex: 1;
+    padding: 16px;
+    overflow: auto;
+}
+
+.editor-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.editor-footer button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+    transition: background-color 0.3s;
+}
+
+.editor-footer button:hover {
+    background-color: #0056b3;
+}
+
+.editor-footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.modal-footer button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+    transition: background-color 0.3s;
+}
+
+.modal-footer button:hover {
+    background-color: #0056b3;
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+    transition: background-color 0.3s;
+}
+
+.notification:hover {
+    background-color: #0056b3;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Loader styles */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .editor-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .editor-header h1 {
+        margin-bottom: 16px;
+    }
+
+    .editor-header button {
+        margin-top: 16px;
+    }
+
+    .editor-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .editor-footer button {
+        margin-top: 16px;
+    }
+}
+
+/* Dark mode styles */
+body.dark .editor-header {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.dark .editor-header button {
+    background-color: #28a745;
+}
+
+body.dark .editor-header button:hover {
+    background-color: #218838;
+}
+
+body.dark .editor-content {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.dark .editor-footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.dark .editor-footer button {
+    background-color: #28a745;
+}
+
+body.dark .editor-footer button:hover {
+    background-color: #218838;
+}
+
+body.dark .modal-content {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.dark .modal-header {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.dark .modal-footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.dark .modal-footer button {
+    background-color: #28a745;
+}
+
+body.dark .modal-footer button:hover {
+    background-color: #218838;
+}
+
+body.dark .notification {
+    background-color: #28a745;
+}
+
+body.dark .notification:hover {
+    background-color: #218838;
+}
+
+body.dark .tooltip .tooltiptext {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #28a745;
+}
+
+/* Light mode styles */
+body.light .editor-header {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.light .editor-header button {
+    background-color: #007bff;
+}
+
+body.light .editor-header button:hover {
+    background-color: #0056b3;
+}
+
+body.light .editor-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light .editor-footer {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.light .editor-footer button {
+    background-color: #007bff;
+}
+
+body.light .editor-footer button:hover {
+    background-color: #0056b3;
+}
+
+body.light .modal-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light .modal-header {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.light .modal-footer {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.light .modal-footer button {
+    background-color: #007bff;
+}
+
+body.light .modal-footer button:hover {
+    background-color: #0056b3;
+}
+
+body.light .notification {
+    background-color: #007bff;
+}
+
+body.light .notification:hover {
+    background-color: #0056b3;
+}
+
+body.light .tooltip .tooltiptext {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.light .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+}
+
+/* Auto theme styles */
+body.auto .editor-header {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+body.auto .editor-header button {
+    background-color: #007bff;
+}
+
+body.auto .editor-header button:hover {
+    background-color: #0056b3;
+}
+
+body.auto .editor-content {
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #000000);
+}
+
+body.auto .editor-footer {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+body.auto .editor-footer button {
+    background-color: #007bff;
+}
+
+body.auto .editor-footer button:hover {
+    background-color: #0056b3;
+}
+
+body.auto .modal-content {
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #000000);
+}
+
+body.auto .modal-header {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+body.auto .modal-footer {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+body.auto .modal-footer button {
+    background-color: #007bff;
+}
+
+body.auto .modal-footer button:hover {
+    background-color: #0056b3;
+}
+
+body.auto .notification {
+    background-color: #007bff;
+}
+
+body.auto .notification:hover {
+    background-color: #0056b3;
+}
+
+body.auto .tooltip .tooltiptext {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.auto .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+}
+
+/* Auto theme light styles */
+body.auto-light .editor-header {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.auto-light .editor-header button {
+    background-color: #007bff;
+}
+
+body.auto-light .editor-header button:hover {
+    background-color: #0056b3;
+}
+
+body.auto-light .editor-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.auto-light .editor-footer {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.auto-light .editor-footer button {
+    background-color: #007bff;
+}
+
+body.auto-light .editor-footer button:hover {
+    background-color: #0056b3;
+}
+
+body.auto-light .modal-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.auto-light .modal-header {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.auto-light .modal-footer {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.auto-light .modal-footer button {
+    background-color: #007bff;
+}
+
+body.auto-light .modal-footer button:hover {
+    background-color: #0056b3;
+}
+
+body.auto-light .notification {
+    background-color: #007bff;
+}
+
+body.auto-light .notification:hover {
+    background-color: #0056b3;
+}
+
+body.auto-light .tooltip .tooltiptext {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.auto-light .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+}
+
+/* Auto theme dark styles */
+body.auto-dark .editor-header {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.auto-dark .editor-header button {
+    background-color: #28a745;
+}
+
+body.auto-dark .editor-header button:hover {
+    background-color: #218838;
+}
+
+body.auto-dark .editor-content {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.auto-dark .editor-footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.auto-dark .editor-footer button {
+    background-color: #28a745;
+}
+
+body.auto-dark .editor-footer button:hover {
+    background-color: #218838;
+}
+
+body.auto-dark .modal-content {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.auto-dark .modal-header {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.auto-dark .modal-footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+body.auto-dark .modal-footer button {
+    background-color: #28a745;
+}
+
+body.auto-dark .modal-footer button:hover {
+    background-color: #218838;
+}
+
+body.auto-dark .notification {
+    background-color: #28a745;
+}
+
+body.auto-dark .notification:hover {
+    background-color: #218838;
+}
+
+body.auto-dark .tooltip .tooltiptext {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.auto-dark .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #28a745;
+}
+
+/* Custom styles */
+.custom {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom.dark {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.auto {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+.custom.auto-dark {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.auto-light {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom .editor-header {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom .editor-header button {
+    background-color: #007bff;
+}
+
+.custom .editor-header button:hover {
+    background-color: #0056b3;
+}
+
+.custom .editor-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.custom .editor-footer {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom .editor-footer button {
+    background-color: #007bff;
+}
+
+.custom .editor-footer button:hover {
+    background-color: #0056b3;
+}
+
+.custom .modal-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.custom .modal-header {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom .modal-footer {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom .modal-footer button {
+    background-color: #007bff;
+}
+
+.custom .modal-footer button:hover {
+    background-color: #0056b3;
+}
+
+.custom .notification {
+    background-color: #007bff;
+}
+
+.custom .notification:hover {
+    background-color: #0056b3;
+}
+
+.custom .tooltip .tooltiptext {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.custom .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+}
+
+.custom.dark .editor-header {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.dark .editor-header button {
+    background-color: #28a745;
+}
+
+.custom.dark .editor-header button:hover {
+    background-color: #218838;
+}
+
+.custom.dark .editor-content {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.dark .editor-footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.dark .editor-footer button {
+    background-color: #28a745;
+}
+
+.custom.dark .editor-footer button:hover {
+    background-color: #218838;
+}
+
+.custom.dark .modal-content {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.dark .modal-header {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.dark .modal-footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.dark .modal-footer button {
+    background-color: #28a745;
+}
+
+.custom.dark .modal-footer button:hover {
+    background-color: #218838;
+}
+
+.custom.dark .notification {
+    background-color: #28a745;
+}
+
+.custom.dark .notification:hover {
+    background-color: #218838;
+}
+
+.custom.dark .tooltip .tooltiptext {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.custom.dark .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #28a745;
+}
+
+.custom.auto .editor-header {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+.custom.auto .editor-header button {
+    background-color: #007bff;
+}
+
+.custom.auto .editor-header button:hover {
+    background-color: #0056b3;
+}
+
+.custom.auto .editor-content {
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #000000);
+}
+
+.custom.auto .editor-footer {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+.custom.auto .editor-footer button {
+    background-color: #007bff;
+}
+
+.custom.auto .editor-footer button:hover {
+    background-color: #0056b3;
+}
+
+.custom.auto .modal-content {
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #000000);
+}
+
+.custom.auto .modal-header {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+.custom.auto .modal-footer {
+    background-color: var(--bg-color, #f8f9fa);
+    color: var(--text-color, #000000);
+}
+
+.custom.auto .modal-footer button {
+    background-color: #007bff;
+}
+
+.custom.auto .modal-footer button:hover {
+    background-color: #0056b3;
+}
+
+.custom.auto .notification {
+    background-color: #007bff;
+}
+
+.custom.auto .notification:hover {
+    background-color: #0056b3;
+}
+
+.custom.auto .tooltip .tooltiptext {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.custom.auto .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+}
+
+.custom.auto-dark .editor-header {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.auto-dark .editor-header button {
+    background-color: #28a745;
+}
+
+.custom.auto-dark .editor-header button:hover {
+    background-color: #218838;
+}
+
+.custom.auto-dark .editor-content {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.auto-dark .editor-footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.auto-dark .editor-footer button {
+    background-color: #28a745;
+}
+
+.custom.auto-dark .editor-footer button:hover {
+    background-color: #218838;
+}
+
+.custom.auto-dark .modal-content {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.auto-dark .modal-header {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.auto-dark .modal-footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.custom.auto-dark .modal-footer button {
+    background-color: #28a745;
+}
+
+.custom.auto-dark .modal-footer button:hover {
+    background-color: #218838;
+}
+
+.custom.auto-dark .notification {
+    background-color: #28a745;
+}
+
+.custom.auto-dark .notification:hover {
+    background-color: #218838;
+}
+
+.custom.auto-dark .tooltip .tooltiptext {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.custom.auto-dark .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #28a745;
+}
+
+.custom.auto-light .editor-header {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom.auto-light .editor-header button {
+    background-color: #007bff;
+}
+
+.custom.auto-light .editor-header button:hover {
+    background-color: #0056b3;
+}
+
+.custom.auto-light .editor-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.custom.auto-light .editor-footer {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom.auto-light .editor-footer button {
+    background-color: #007bff;
+}
+
+.custom.auto-light .editor-footer button:hover {
+    background-color: #0056b3;
+}
+
+.custom.auto-light .modal-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.custom.auto-light .modal-header {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom.auto-light .modal-footer {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.custom.auto-light .modal-footer button {
+    background-color: #007bff;
+}
+
+.custom.auto-light .modal-footer button:hover {
+    background-color: #0056b3;
+}
+
+.custom.auto-light .notification {
+    background-color: #007bff;
+}
+
+.custom.auto-light .notification:hover {
+    background-color: #0056b3;
+}
+
+.custom.auto-light .tooltip .tooltiptext {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.custom.auto-light .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+}
+
+body {
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+button {
+    border-radius: 12px;
+    margin: 5px;
+    padding: 10px 20px;
+}
+
+#input {
+    padding: 10px;
+    border-radius: 12px;
+}
+
+textarea {
+    padding: 10px;
+    border-radius: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    resize: none;
+}

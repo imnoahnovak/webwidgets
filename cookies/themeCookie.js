@@ -3,10 +3,7 @@ function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     const expires = `expires=${date.toUTCString()}`;
-    const secure = "Secure"; // Ensure the cookie is only sent over HTTPS
-    const httpOnly = "HttpOnly"; // Prevent JavaScript access to the cookie
-    const sameSite = "SameSite=Lax"; // Adjust SameSite attribute as needed
-    document.cookie = `${name}=${value};${expires};path=/;${secure};${httpOnly};${sameSite}`;
+    document.cookie = `${name}=${value};${expires};path=/`;
 }
 
 // Utility function to get a cookie
