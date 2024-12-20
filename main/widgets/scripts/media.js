@@ -69,13 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const rewindButton = document.createElement('button');
-    rewindButton.textContent = '-10s';
+    rewindButton.textContent = 'Rewind 10s';
     rewindButton.addEventListener('click', function() {
         mediaElement.currentTime -= 10;
     });
 
     const fastForwardButton = document.createElement('button');
-    fastForwardButton.textContent = '+10s';
+    fastForwardButton.textContent = 'Fast Forward 10s';
     fastForwardButton.addEventListener('click', function() {
         mediaElement.currentTime += 10;
     });
