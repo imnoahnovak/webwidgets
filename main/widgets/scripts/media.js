@@ -2,27 +2,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const mediaElement = document.getElementById('mediaElement'); // Replace with your media element's ID
     const fileInput = document.getElementById('fileInput'); // Replace with your file input element's ID
 
-    fileInput.addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const url = URL.createObjectURL(file);
-            const source = mediaElement.querySelector('source');
-            source.src = url;
-            mediaElement.load(); // Load the new source
-            mediaElement.play(); // Optionally start playing the media
-        }
-    });
-
-    mediaElement.addEventListener('play', function() {
-        // Code to show media playback
-        console.log('Media is now playing');
-    });
-
     const controlsContainer = document.createElement('div');
     controlsContainer.id = 'controlsContainer';
-    controlsContainer.style.display = 'flex';
+    controlsContainer.style.display = 'none'; // Initially hidden
     controlsContainer.style.justifyContent = 'center';
     controlsContainer.style.marginTop = '10px';
+    controlsContainer.style.position = 'absolute'; // Adjust position
+    controlsContainer.style.bottom = '20px'; // Adjust bottom position
+    controlsContainer.style.left = '50%'; // Center horizontally
+    controlsContainer.style.transform = 'translateX(-50%)'; // Center horizontally
+    controlsContainer.style.transition = 'opacity 0.5s';
+    controlsContainer.style.opacity = '1';
 
     const playPauseButton = document.createElement('button');
     playPauseButton.textContent = 'Pause';
@@ -40,15 +30,23 @@ document.addEventListener('DOMContentLoaded', function() {
     volumeControl.type = 'range';
     volumeControl.min = '0';
     volumeControl.max = '1';
-    volumeControl.step = '0.1';
+    volumeControl.step = '0.01';
     volumeControl.value = mediaElement.volume;
 
     const volumeLabel = document.createElement('span');
+    volumeLabel.id = 'volumeLabel';
+    volumeLabel.style.display = 'none';
     volumeLabel.textContent = `Volume: ${Math.round(volumeControl.value * 100)}%`;
 
     volumeControl.addEventListener('input', function() {
         mediaElement.volume = volumeControl.value;
         volumeLabel.textContent = `Volume: ${Math.round(volumeControl.value * 100)}%`;
+        volumeLabel.style.display = 'inline';
+        volumeLabel.classList.add('show');
+        clearTimeout(volumeLabel.hideTimeout);
+        volumeLabel.hideTimeout = setTimeout(function() {
+            volumeLabel.classList.remove('show');
+        }, 2000);
     });
 
     const progressBar = document.createElement('input');
@@ -64,19 +62,20 @@ document.addEventListener('DOMContentLoaded', function() {
     mediaElement.addEventListener('timeupdate', function() {
         const progress = (mediaElement.currentTime / mediaElement.duration) * 100;
         progressBar.value = progress;
+        mediaElement.style.display = 'block';
         if (mediaElement.ended) {
             playPauseButton.textContent = 'Play';
         }
     });
 
     const rewindButton = document.createElement('button');
-    rewindButton.textContent = 'Rewind 10s';
+    rewindButton.textContent = '-10s';
     rewindButton.addEventListener('click', function() {
         mediaElement.currentTime -= 10;
     });
 
     const fastForwardButton = document.createElement('button');
-    fastForwardButton.textContent = 'Fast Forward 10s';
+    fastForwardButton.textContent = '+10s';
     fastForwardButton.addEventListener('click', function() {
         mediaElement.currentTime += 10;
     });
@@ -89,6 +88,55 @@ document.addEventListener('DOMContentLoaded', function() {
     controlsContainer.appendChild(fastForwardButton);
 
     document.body.appendChild(controlsContainer);
+
+    fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file && (file.type === 'video/mp4' || file.type === 'audio/mpeg')) {
+            const url = URL.createObjectURL(file);
+            const source = mediaElement.querySelector('source');
+            source.src = url;
+            mediaElement.load(); // Load the new source
+            mediaElement.play(); // Optionally start playing the media
+        } else {
+            alert('Invalid file type. Please select a valid video or audio file.');
+        }
+    });
+
+    mediaElement.addEventListener('play', function() {
+        // Code to show media playback
+        console.log('Media is now playing');
+        controlsContainer.style.display = 'flex';
+    });
+
+    mediaElement.addEventListener('pause', function() {
+        console.log('Media is paused');
+        controlsContainer.style.display = 'flex';
+    });
+
+    mediaElement.addEventListener('ended', function() {
+        console.log('Media has ended');
+        controlsContainer.style.display = 'flex';
+    });
+
+    let hideControlsTimeout;
+
+    function showControls() {
+        controlsContainer.style.opacity = '1';
+        clearTimeout(hideControlsTimeout);
+        hideControlsTimeout = setTimeout(hideControls, 3000); // Hide controls after 3 seconds of inactivity
+    }
+
+    function hideControls() {
+        controlsContainer.style.opacity = '0';
+    }
+
+    document.addEventListener('mousemove', showControls);
+    document.addEventListener('keydown', showControls);
+    controlsContainer.addEventListener('mousemove', showControls);
+    mediaElement.addEventListener('play', showControls);
+    mediaElement.addEventListener('pause', showControls);
+
+    showControls(); // Initialize controls visibility
 });
 
 document.addEventListener('DOMContentLoaded', function () {
