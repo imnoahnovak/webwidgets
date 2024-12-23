@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const mediaElement = document.getElementById('mediaElement'); // Replace with your media element's ID
-    const fileInput = document.getElementById('fileInput'); // Replace with your file input element's ID
+    const mediaElement = document.getElementById('mediaElement'); 
+    const fileInput = document.getElementById('fileInput');
 
-    // Ensure only one event listener is attached to the upload button
     const uploadButton = document.querySelector('.custom-file-upload');
     uploadButton.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent default action

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/main/styles.css">
     <script src="/main/cookies/preferences.js" defer></script>
     <script src="/main/widgets/scripts/media.js" defer></script>
     <title>Media Player | Web Widgets</title>
@@ -25,19 +25,25 @@
         <input type="file" id="fileInput" accept="video/*,audio/*" style="display: none;">
         <div class="media-elements">
             <video id="mediaElement" class="left-aligned-video" autoplay>
-                <source src="" type="video/*" aria-live="polite">
+                <source src="" type="video/mp4" aria-live="polite">
                 Your browser does not support the video tag.
             </video>
             <audio id="audioElement">
-                <source src="" type="audio/*" aria-live="polite">
+                <source src="" type="audio/mpeg" aria-live="polite">
                 Your browser does not support the audio tag.
             </audio>
         </div>
     </div>
 
-    <!-- Theme toggle button -->
-    <div id="theme-toggle-container">
-        <button id="theme-toggle">Auto</button>
+    <div class="dropdown">
+        <button class="dropbtn">Settings</button>
+        <div class="dropdown-content">
+            <div id="settings">
+                <div id="theme-toggle-container">
+                    <button id="theme-toggle">Auto</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
