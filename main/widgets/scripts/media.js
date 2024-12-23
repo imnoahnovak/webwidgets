@@ -145,3 +145,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     showControls(); // Initialize controls visibility
 });
+
+window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+        // Reinitialize any state or UI that needs to be restored
+        console.log('Page restored from bfcache');
+    }
+});

@@ -6,13 +6,13 @@
     <title>Widget Editor | Web Widgets</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="/widgets/scripts/editor.js"></script>
-    <script src="/main/cookies/themeCookie.js"></script>
+    <script src="/main/cookies/preferences.js"></script>
 </head>
 
 <body>
     <textarea id="filename" placeholder="File name"></textarea>
     <textarea id="editor" placeholder="Start typing your code..." oninput="updatePreview()"></textarea>
-    <iframe id="preview" style="background-color: white;" ></iframe>
+    <iframe id="preview" style="background-color: white;" aria-live="polite"></iframe>
     <button onclick="saveFile()">Save</button>
     <button onclick="loadFile()">Load</button>
     <button onclick="clearEditor()">Clear</button>

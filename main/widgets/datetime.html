@@ -1,27 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Widgets is a collection of web-based widgets that can be used to perform various tasks.">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../cookies/preferences.js" defer></script>
+    <title>Clock and Calendar | Web Widgets</title>
+</head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Clock and Calendar | Web Widgets</title>
-        <link rel="stylesheet" href="../styles.css">
-        <script src="/main/cookies/themeCookie.js"></script>
-    </head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <center>
+            <h1>Clock and Calendar</h1>
+            <a href="/main/index.html" style="position: absolute; top: 10px; left: 10px;">Home</a>
+        </center>
+    </div>
 
-    <body onload="startTime()">
-
-        <button onclick="window.location.href='../index.html'">Home</button>
-
+    <div id="datetime-container">
         <div id="txt"></div>
+        <div id="date"></div>
+    </div>
 
-        <script src="/widgets/scripts/clock.js"></script>
-
-        <!-- Theme toggle button -->
-        <div id="theme-toggle-container">
-            <button id="theme-toggle"></button>
+    <!-- Dropdown menu for settings -->
+    <div class="dropdown">
+        <button class="dropbtn">Settings</button>
+        <div class="dropdown-content">
+            <div id="settings">
+                <div id="time-format">
+                    <h3>Time Format</h3>
+                    <button id="time-format-12">12-hour</button>
+                    <button id="time-format-24">24-hour</button>
+                    <button id="show-seconds">Hide Seconds</button>
+                </div>
+                <div id="date-format">
+                    <h3>Date Format</h3>
+                    <button id="date-format-mdy">MM/DD/YYYY</button>
+                    <button id="date-format-dmy">DD/MM/YYYY</button>
+                    <button id="date-format-ymd">YYYY/MM/DD</button>
+                </div>
+                <!-- Theme toggle button -->
+                <div id="theme-toggle-container">
+                    <button id="theme-toggle">Auto</button>
+                </div>
+            </div>
         </div>
-
-    </body>
-
+    </div>
+</body>
 </html>

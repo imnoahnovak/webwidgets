@@ -4,26 +4,43 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+	<meta name="description" content="Web Widgets is a collection of web-based widgets that can be used to perform various tasks.">
 	<title>Web Widgets | Home</title>
 	<link rel="stylesheet" href="/main/styles.css">
-	<script src="/main/cookies/themeCookie.js" defer></script>
+	<script src="/main/cookies/preferences.js" defer></script>
 </head>
 
 <body>
-	<center>
-		<h1>Web Widgets</h1>
-	</center>
+	<header>
+		<center>
+			<h1>Web Widgets</h1>
+			<p>Welcome, <span id="name">User</span>! <span id="edit"></span></p>
+		</center>
+	</header>
 	<!-- Navigation bar -->
-	<div class="navbar">
-		<a href="/main/widgets/datetime.html">Clock</a>
-		<a href="/main/widgets/calculator.html">Calculator</a>
-	</div>
+	<main>
+		<div class="navbar">
+			<nav>
+				<a href="/main/widgets/datetime.html">Date & Time</a>
+			</nav>
+			<nav>
+				<a href="/main/widgets/calculator.html">Calculator</a>
+			</nav>
+		</div>
+	</main>
 
-	<!-- Theme toggle button -->
-	<div id="theme-toggle-container">
-		<button id="theme-toggle">Toggle Theme</button>
+	<!-- Dropdown menu for settings -->
+	<div class="dropdown">
+		<button class="dropbtn">Settings</button>
+		<div class="dropdown-content">
+			<div id="settings">
+				<!-- Theme toggle button -->
+				<div id="theme-toggle-container">
+					<button id="theme-toggle">Auto</button>
+				</div>
+			</div>
+		</div>
 	</div>
-
 </body>
-
 </html>

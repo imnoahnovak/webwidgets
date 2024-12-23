@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
-    <script src="../cookies/themeCookie.js" defer></script>
+    <script src="/main/cookies/preferences.js" defer></script>
     <script src="/main/widgets/scripts/media.js" defer></script>
     <title>Media Player | Web Widgets</title>
 </head>
+
 <body>
     <!-- Navigation bar -->
     <div class="navbar">
@@ -25,6 +26,7 @@
         <div class="media-elements">
             <video id="mediaElement" class="left-aligned-video" autoplay>
                 <source src="" type="video/mp4">
+                <track [kind="captions"]></track>
                 Your browser does not support the video tag.
             </video>
             <audio id="audioElement">
