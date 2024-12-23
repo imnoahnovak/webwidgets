@@ -25,12 +25,11 @@
         <input type="file" id="fileInput" accept="video/*,audio/*" style="display: none;">
         <div class="media-elements">
             <video id="mediaElement" class="left-aligned-video" autoplay>
-                <source src="" type="video/mp4">
-                <track [kind="captions"]></track>
+                <source src="" type="video/*" aria-live="polite">
                 Your browser does not support the video tag.
             </video>
             <audio id="audioElement">
-                <source src="" type="audio/mpeg">
+                <source src="" type="audio/*" aria-live="polite">
                 Your browser does not support the audio tag.
             </audio>
         </div>
