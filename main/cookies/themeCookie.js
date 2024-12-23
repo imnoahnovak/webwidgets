@@ -26,7 +26,9 @@ function applyTheme(theme) {
         document.body.classList.add(theme);
     }
     const toggleButton = document.getElementById("theme-toggle");
-    toggleButton.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
+    if (toggleButton) {
+        toggleButton.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
+    }
 }
 
 // Initialize the theme from the cookie or default to "auto"
@@ -38,25 +40,27 @@ function initTheme() {
 // Set up the toggle button functionality
 function setupThemeToggle() {
     const toggleButton = document.getElementById("theme-toggle");
-    toggleButton.addEventListener("click", () => {
-        const currentTheme = getCookie("theme") || "auto";
-        let newTheme;
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            const currentTheme = getCookie("theme") || "auto";
+            let newTheme;
 
-        if (currentTheme === "light") {
-            newTheme = "dark";
-        } else if (currentTheme === "dark") {
-            newTheme = "auto";
-        } else {
-            newTheme = "light";
-        }
+            if (currentTheme === "light") {
+                newTheme = "dark";
+            } else if (currentTheme === "dark") {
+                newTheme = "auto";
+            } else {
+                newTheme = "light";
+            }
 
-        setCookie("theme", newTheme, 365 * 10); // Save the theme in a cookie for 10 years
-        applyTheme(newTheme);
-    });
+            setCookie("theme", newTheme, 365 * 10); // Save the theme in a cookie for 10 years
+            applyTheme(newTheme);
+        });
+    }
 }
 
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
     initTheme();
     setupThemeToggle();
-});
+}); 

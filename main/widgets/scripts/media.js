@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const mediaElement = document.getElementById('mediaElement'); // Replace with your media element's ID
     const fileInput = document.getElementById('fileInput'); // Replace with your file input element's ID
 
+    // Ensure only one event listener is attached to the upload button
+    const uploadButton = document.querySelector('.custom-file-upload');
+    uploadButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default action
+        fileInput.click();
+    });
+    
     const controlsContainer = document.createElement('div');
     controlsContainer.id = 'controlsContainer';
     controlsContainer.style.display = 'none'; // Initially hidden
@@ -137,19 +144,4 @@ document.addEventListener('DOMContentLoaded', function() {
     mediaElement.addEventListener('pause', showControls);
 
     showControls(); // Initialize controls visibility
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    var notification = document.getElementById('notification');
-    notification.style.display = 'block';
-    setTimeout(function () {
-        notification.style.bottom = '10px';
-    }, 100); // Delay to allow transition effect
-    setTimeout(function () {
-        notification.style.opacity = '0';
-        notification.style.bottom = '-100px';
-        setTimeout(function () {
-            notification.style.display = 'none';
-        }, 1000); // Match the transition duration
-    }, 7000); // 10 seconds
 });

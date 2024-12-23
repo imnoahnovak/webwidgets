@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <script src="../cookies/themeCookie.js" defer></script>
-    <script src="/main/widgets/scripts/media.js"></script>
+    <script src="/main/widgets/scripts/media.js" defer></script>
     <title>Media Player | Web Widgets</title>
 </head>
 <body>
@@ -18,23 +18,25 @@
     </div>
     
     <div id="media-container">
-        <input type="file" id="fileInput" accept="video/*,audio/*" >
-        <center>
-            <video id="mediaElement" autoplay style="width: 80%; max-width: 800px; height: auto; border-radius: 12px; ">
-            <source src="" type="video/mp4">
-            Your browser does not support the video tag.
+        <label for="fileInput" class="custom-file-upload">
+            Upload Media
+        </label>
+        <input type="file" id="fileInput" accept="video/*,audio/*" style="display: none;">
+        <div class="media-elements">
+            <video id="mediaElement" class="left-aligned-video" autoplay>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
             </video>
-            <audio id="audioElement" style="width: 80%; max-width: 800px; height: auto;">
-            <source src="" type="audio/mpeg">
-            Your browser does not support the audio tag.
+            <audio id="audioElement">
+                <source src="" type="audio/mpeg">
+                Your browser does not support the audio tag.
             </audio>
-        </center>
-        <center>
-        <div id="notification" style="position: fixed; bottom: -100px; right: 10px; background-color: #333; color: white; text-align: center; padding: 10px; display: none; opacity: 1; transition: bottom 1s, opacity 1s; border-radius: 5px; max-width: 300px;">
-            <p style="margin: 0; font-size: 12px;">Note: media <i>may</i> be temporarily stored locally on your device for features (like playlists, metadata, etc) and for a faster and better experience. <strong>None of your data is read by anyone.</strong> For more details, click <a href="../privacy.html" style="color: #4CAF50;">here</a></p>
-            <button onclick="this.parentElement.style.display='none'" style="margin-top: 5px; font-size: 12px;">Dismiss</button>
         </div>
-        </center>
+    </div>
+
+    <!-- Theme toggle button -->
+    <div id="theme-toggle-container">
+        <button id="theme-toggle">Auto</button>
     </div>
 </body>
 </html>
