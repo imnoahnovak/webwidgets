@@ -7,6 +7,4 @@ Welcome to the Web Widgets repository, created by Noah Novak! Web Widgets is a m
 - Free and open-source  
 
 ### Develop your own widgets with a provided template!  
-Want to develop your *own* widgets as a developer? It's as simple as typing in your own code in the built in editor* *or* using the template provided!  
-
-* *Editor will be released at a later time*  
+Want to develop your *own* widgets as a developer? It's as simple as typing in your own code in the built in editor *or* using the template provided!  
