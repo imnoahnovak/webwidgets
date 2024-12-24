@@ -108,6 +108,8 @@ body.auto-dark {
     z-index: 1;
     border-radius: 4px;
     padding: 10px;
+    top: 40px; /* Adjust to be directly below the button */
+    left: 0; /* Align with the button */
 }
 
 .dropdown-content h2, .dropdown-content h3 {
@@ -131,6 +133,10 @@ body.auto-dark {
 }
 
 .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn:hover + .dropdown-content, .dropdown-content:hover {
     display: block;
 }
 
@@ -216,38 +222,36 @@ body.auto-dark {
 
 /* Navbar styles */
 .navbar a {
-    padding: 14px 20px;
+    padding: 10px 20px;
     display: inline-block;
     color: white;
     text-align: center;
     text-decoration: none;
-    background-color: #333;
-    border-radius: 16px;
-    margin: 4px 2px;
-    transition: background-color 0.3s;
+    background-color: #007bff;
+    border-radius: 25px;
+    margin: 0 5px;
+    cursor: pointer;
 }
 
 .navbar a:hover {
-    background-color: #555;
+    background-color: #0056b3;
 }
 
 /* Custom file upload button */
 .custom-file-upload {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 10px 20px;
     cursor: pointer;
-    background-color: #343a40;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     font-size: 16px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    margin: 0 5px;
 }
 
 .custom-file-upload:hover {
-    background-color: #555;
+    background-color: #0056b3;
 }
 
 /* Media elements container */
@@ -280,3 +284,25 @@ body.auto-dark {
     gap: 10px;
 }
 
+.pill-container {
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.pill-button {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    display: inline-block;
+    border: none;
+    border-radius: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pill-button:hover {
+    background-color: #0056b3;
+}

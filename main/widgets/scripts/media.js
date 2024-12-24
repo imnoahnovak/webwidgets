@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     const mediaElement = document.getElementById('mediaElement'); 
     const fileInput = document.getElementById('fileInput');
+    const originalBackgroundColor = document.body.style.backgroundColor;
 
     const uploadButton = document.querySelector('.custom-file-upload');
     uploadButton.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent default action
         fileInput.click();
+    });
+
+    const settingsButton = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    settingsButton.addEventListener('click', function() {
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
     });
     
     const controlsContainer = document.createElement('div');
@@ -75,13 +82,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const rewindButton = document.createElement('button');
-    rewindButton.textContent = 'Rewind 10s';
+    rewindButton.textContent = '-10s';
     rewindButton.addEventListener('click', function() {
         mediaElement.currentTime -= 10;
     });
 
     const fastForwardButton = document.createElement('button');
-    fastForwardButton.textContent = 'Fast Forward 10s';
+    fastForwardButton.textContent = '+10s';
     fastForwardButton.addEventListener('click', function() {
         mediaElement.currentTime += 10;
     });
@@ -97,12 +104,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fileInput.addEventListener('change', function(event) {
         const file = event.target.files[0];
-        if (file && (file.type === 'video/mp4' || file.type === 'audio/mpeg')) {
+        if (file) {
             const url = URL.createObjectURL(file);
-            const source = mediaElement.querySelector('source');
-            source.src = url;
-            mediaElement.load(); // Load the new source
-            mediaElement.play(); // Optionally start playing the media
+            mediaElement.src = url;
+
+            mediaElement.addEventListener('loadeddata', function() {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.width = mediaElement.videoWidth;
+                canvas.height = mediaElement.videoHeight;
+
+                // Pick a random frame
+                const randomTime = Math.random() * mediaElement.duration;
+                mediaElement.currentTime = randomTime;
+
+                mediaElement.addEventListener('seeked', function() {
+                    context.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
+                    const frameData = context.getImageData(0, 0, canvas.width, canvas.height).data;
+
+                    // Pick a random pixel
+                    const randomPixelIndex = Math.floor(Math.random() * (frameData.length / 4)) * 4;
+                    const red = frameData[randomPixelIndex];
+                    const green = frameData[randomPixelIndex + 1];
+                    const blue = frameData[randomPixelIndex + 2];
+
+                    const backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+                    // Only change background color if dark mode is enabled
+                    if (document.body.classList.contains('dark')) {
+                        document.body.style.backgroundColor = backgroundColor;
+                    }
+
+                    // Pause the video after seeking to the random frame
+                    mediaElement.pause();
+                }, { once: true });
+            }, { once: true });
         } else {
             alert('Invalid file type. Please select a valid video or audio file.');
         }
@@ -122,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mediaElement.addEventListener('ended', function() {
         console.log('Media has ended');
         controlsContainer.style.display = 'flex';
+        document.body.style.backgroundColor = originalBackgroundColor;
     });
 
     let hideControlsTimeout;
@@ -143,11 +180,27 @@ document.addEventListener('DOMContentLoaded', function() {
     mediaElement.addEventListener('pause', showControls);
 
     showControls(); // Initialize controls visibility
+
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+        const currentTheme = getCookie("theme") || "auto";
+        let newTheme;
+
+        if (currentTheme === "light") {
+            newTheme = "dark";
+        } else if (currentTheme === "dark") {
+            newTheme = "auto";
+        } else {
+            newTheme = "light";
+        }
+
+        setCookie("theme", newTheme, 365 * 10); // Save the theme in a cookie for 10 years
+        applyTheme(newTheme);
+    });
 });
 
 window.addEventListener("pageshow", (event) => {
     if (event.persisted) {
         // Reinitialize any state or UI that needs to be restored
-        console.log('Page restored from bfcache');
+        initTheme();
     }
 });
