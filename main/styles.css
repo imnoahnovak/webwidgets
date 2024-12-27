@@ -77,6 +77,27 @@ body.auto-dark {
     background-color: #0056b3;
 }
 
+#widgets-container {
+    margin-top: 10px;
+}
+
+#widgets {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+    transition: background-color 0.3s;
+}
+
+#widgets:hover {
+    background-color: #0056b3;
+}
+
 /* Dropdown menu styles */
 .dropdown {
     position: relative;
@@ -94,7 +115,8 @@ body.auto-dark {
     border-radius: 4px;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
     background-color: #0056b3;
 }
 
@@ -108,11 +130,14 @@ body.auto-dark {
     z-index: 1;
     border-radius: 4px;
     padding: 10px;
-    top: 40px; /* Adjust to be directly below the button */
-    left: 0; /* Align with the button */
+    top: 40px;
+    /* Adjust to be directly below the button */
+    left: 0;
+    /* Align with the button */
 }
 
-.dropdown-content h2, .dropdown-content h3 {
+.dropdown-content h2,
+.dropdown-content h3 {
     color: var(--dropdown-text-color);
 }
 
@@ -136,7 +161,8 @@ body.auto-dark {
     display: block;
 }
 
-.dropbtn:hover + .dropdown-content, .dropdown-content:hover {
+.dropbtn:hover + .dropdown-content,
+.dropdown-content:hover {
     display: block;
 }
 
@@ -304,5 +330,23 @@ body.auto-dark {
 }
 
 .pill-button:hover {
+    background-color: #0056b3;
+}
+
+#version {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 24px;
+    padding: 5px 10px;
+    font-size: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    margin-left: 45%;
+    margin-right: 45%;
+    margin-top: 20%;
+}
+
+#version:hover {
     background-color: #0056b3;
 }
