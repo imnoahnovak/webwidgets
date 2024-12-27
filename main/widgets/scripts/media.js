@@ -107,39 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (file) {
             const url = URL.createObjectURL(file);
             mediaElement.src = url;
+        }
 
-            mediaElement.addEventListener('loadeddata', function() {
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.width = mediaElement.videoWidth;
-                canvas.height = mediaElement.videoHeight;
-
-                // Pick a random frame
-                const randomTime = Math.random() * mediaElement.duration;
-                mediaElement.currentTime = randomTime;
-
-                mediaElement.addEventListener('seeked', function() {
-                    context.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
-                    const frameData = context.getImageData(0, 0, canvas.width, canvas.height).data;
-
-                    // Pick a random pixel
-                    const randomPixelIndex = Math.floor(Math.random() * (frameData.length / 4)) * 4;
-                    const red = frameData[randomPixelIndex];
-                    const green = frameData[randomPixelIndex + 1];
-                    const blue = frameData[randomPixelIndex + 2];
-
-                    const backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-
-                    // Only change background color if dark mode is enabled
-                    if (document.body.classList.contains('dark')) {
-                        document.body.style.backgroundColor = backgroundColor;
-                    }
-
-                    // Pause the video after seeking to the random frame
-                    mediaElement.pause();
-                }, { once: true });
-            }, { once: true });
-        } else {
+        else {
             alert('Invalid file type. Please select a valid video or audio file.');
         }
     });
