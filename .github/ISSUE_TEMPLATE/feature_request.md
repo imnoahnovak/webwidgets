@@ -1,20 +1,19 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
-title: "[FEATURE REQUEST]"
+about: Don't be afraid to share ideas! They are always welcome.
+title: "[Feature request]"
 labels: ''
-assignees: ''
+assignees: imnoahnovak
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**What is it?**
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Why should it be added?**
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+
+**(Optional) If this came from a different repository, link it in Markdown.**
+
+
+**Notes and screenshots**
