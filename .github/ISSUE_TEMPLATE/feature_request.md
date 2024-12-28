@@ -2,7 +2,7 @@
 name: Feature request
 about: Don't be afraid to share ideas! They are always welcome.
 title: "[Feature request]"
-labels: ''
+labels: 'Feature request'
 assignees: imnoahnovak
 
 ---
