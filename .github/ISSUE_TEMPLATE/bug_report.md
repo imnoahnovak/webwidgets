@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a bug report for any broken elements or unexpected errors
 title: "[Bug]"
-labels: ''
+labels: 'Bug'
 assignees: imnoahnovak
 
 ---
