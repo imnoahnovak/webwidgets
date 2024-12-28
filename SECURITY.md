@@ -9,4 +9,4 @@
 
 ## How to report a vulnerability
 
-Go to Issues to report a vulnerability.
+Go to Issues to report a vulnerability. You may also report privately in the Advisories menu in the Security tab.
