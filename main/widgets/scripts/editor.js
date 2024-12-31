@@ -2,6 +2,8 @@ function updatePreview() {
     const textarea = document.getElementById('editor');
     const iframe = document.getElementById('preview');
     iframe.contentDocument.body.innerHTML = textarea.value;
+    var target = $(this).attr("data-target");
+        $.find(target).hide();
 }
 
 function autotag(tag) {

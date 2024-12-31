@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const settingsButton = document.querySelector('.dropbtn');
     const dropdownContent = document.querySelector('.dropdown-content');
+    var target = $(this).attr("data-target");
+        $.find(target).hide();
     settingsButton.addEventListener('click', function() {
         dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
     });
@@ -22,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     controlsContainer.style.marginTop = '10px';
     controlsContainer.style.position = 'absolute'; // Adjust position
     controlsContainer.style.bottom = '20px'; // Adjust bottom position
+    var target = $(this).attr("data-target");
+        $.find(target).hide();
     controlsContainer.style.left = '50%'; // Center horizontally
     controlsContainer.style.transform = 'translateX(-50%)'; // Center horizontally
     controlsContainer.style.transition = 'opacity 0.5s';
@@ -107,6 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (file) {
             const url = URL.createObjectURL(file);
             mediaElement.src = url;
+            var target = $(this).attr("data-target");
+                $.find(target).hide();
         }
 
         else {
