@@ -7,14 +7,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const iframeHistory = [];
     let currentIndex = -1;
 
+    // Function to validate and sanitize URLs
+    const sanitizeURL = (url) => {
+        try {
+            const parsedURL = new URL(url);
+            if (['http:', 'https:'].includes(parsedURL.protocol)) {
+                return parsedURL.href;
+            } else {
+                throw new Error('Unsupported protocol');
+            }
+        } catch (error) {
+            alert("Invalid or unsafe URL.");
+            return null;
+        }
+    };
+
     loadButton.addEventListener('click', () => {
-        const url = input.value;
+        const url = sanitizeURL(input.value.trim());
         if (url) {
-            iframe.src = url;
+            iframe.src = url; // Safe assignment
             iframeHistory.push(url);
             currentIndex++;
-        } else {
-            alert("No URL provided.");
         }
     });
 

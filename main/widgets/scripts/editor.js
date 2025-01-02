@@ -1,9 +1,14 @@
+function escapeHTML(input) {
+    const div = document.createElement('div');
+    div.innerText = input;
+    return div.innerHTML;
+}
+
 function updatePreview() {
     const textarea = document.getElementById('editor');
     const iframe = document.getElementById('preview');
-    iframe.contentDocument.body.innerHTML = textarea.value;
-    var target = $(this).attr("data-target");
-        $.find(target).hide();
+    const escapedContent = escapeHTML(textarea.value);
+    iframe.contentDocument.body.innerHTML = escapedContent;
 }
 
 function autotag(tag) {
