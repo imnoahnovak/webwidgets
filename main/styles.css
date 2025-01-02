@@ -1,31 +1,31 @@
-/* Base styles */
+/* General styles */
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #000000);
     transition: background-color 0.3s, color 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Light theme */
+/* Light mode variables */
 body.light {
     --bg-color: #ffffff;
     --text-color: #000000;
-    --dropdown-bg-color: #f9f9f9;
-    --dropdown-text-color: #000000;
-    --dropdown-hover-bg-color: #e0e0e0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    --note-bg-color: #f9f9f9;
+    /* Light gray for notes */
+    --note-hover-bg-color: #e0e0e0;
+    /* Slightly darker gray for hover */
 }
 
-/* Dark theme */
+/* Dark mode variables */
 body.dark {
-    --bg-color: #000000;
+    --bg-color: #121212;
     --text-color: #ffffff;
-    --dropdown-bg-color: #333333;
-    --dropdown-text-color: #ffffff;
-    --dropdown-hover-bg-color: #555555;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    --note-bg-color: #1e1e1e;
+    /* Dark gray for notes */
+    --note-hover-bg-color: #2a2a2a;
+    /* Lighter gray for hover */
 }
 
 /* Auto theme (matches OS preference) */
@@ -349,4 +349,93 @@ body.auto-dark {
 
 #version:hover {
     background-color: #0056b3;
+}
+
+/* Main Container */
+#main-container {
+    display: flex;
+    height: 100vh;
+    gap: 20px;
+}
+
+/* Left Panel (Notes List) */
+#left-panel {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+}
+
+#add-note-button,
+#save-note-button,
+#cancel-note-button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#add-note-button:hover,
+#save-note-button:hover,
+#cancel-note-button:hover {
+    background-color: #0056b3;
+}
+
+#editor-container {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#search-box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Center panel */
+#center-panel {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#notes-list .note-preview {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: var(--note-bg-color, #1e1e1e);
+    /* Darker gray for dark mode */
+    color: var(--text-color, #ffffff);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s, color 0.3s;
+}
+
+#notes-list .note-preview:hover {
+    transform: scale(1.02);
+    background-color: var(--note-hover-bg-color, #2a2a2a);
+    /* Slightly lighter gray for hover */
+}
+
+/* Right Panel (Note Preview) */
+#right-panel {
+    flex: 2;
+    background-color: #ffffff;
+    padding: 20px;
+    overflow-y: auto;
+    border-left: 1px solid #ccc;
+}
+
+#right-panel.active {
+    opacity: 1;
+    transform: translateX(0);
 }

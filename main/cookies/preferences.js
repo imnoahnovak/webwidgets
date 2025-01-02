@@ -79,14 +79,14 @@ function setupThemeToggle() {
 function editName() {
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
-    editButton.addEventListener("click", function() {
+    editButton.addEventListener("click", function () {
         const input = document.createElement("input");
         input.type = "text";
         input.value = document.getElementById("name").textContent;
 
         const saveButton = document.createElement("button");
         saveButton.textContent = "Save";
-        saveButton.addEventListener("click", function() {
+        saveButton.addEventListener("click", function () {
             const newName = input.value;
             if (!/^[A-Za-z]+$/.test(newName)) {
                 alert("Please enter a valid name.");
@@ -157,17 +157,17 @@ function initClock() {
         return i;
     }
 
-    document.getElementById('time-format-12').addEventListener('click', function() {
+    document.getElementById('time-format-12').addEventListener('click', function () {
         is24HourFormat = false;
         setCookie('is24HourFormat', is24HourFormat, 30);
     });
 
-    document.getElementById('time-format-24').addEventListener('click', function() {
+    document.getElementById('time-format-24').addEventListener('click', function () {
         is24HourFormat = true;
         setCookie('is24HourFormat', is24HourFormat, 30);
     });
 
-    document.getElementById('show-seconds').addEventListener('click', function() {
+    document.getElementById('show-seconds').addEventListener('click', function () {
         showSeconds = !showSeconds;
         setCookie('showSeconds', showSeconds, 30);
         this.textContent = showSeconds ? "Hide Seconds" : "Show Seconds";
@@ -208,7 +208,7 @@ function weatherLocation() {
     }
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, function(error) {
+        navigator.geolocation.getCurrentPosition(showPosition, function (error) {
             console.error('Error getting location:', error);
         });
     } else {
@@ -228,4 +228,106 @@ window.addEventListener("pageshow", (event) => {
     if (event.persisted) {
         initTheme();
     }
+});
+
+// Get cookies as an object for better management
+function getCookies() {
+    const cookies = {};
+    document.cookie.split(';').forEach(cookie => {
+        const [key, value] = cookie.trim().split('=');
+        cookies[key] = decodeURIComponent(value);
+    });
+    return cookies;
+}
+
+let notes = []; // Array to store notes
+
+// Save notes to localStorage
+function saveNotesToStorage() {
+    localStorage.setItem("notes", JSON.stringify(notes));
+}
+
+// Load notes from localStorage
+function loadNotesFromStorage() {
+    const storedNotes = localStorage.getItem("notes");
+    if (storedNotes) {
+        notes = JSON.parse(storedNotes);
+    }
+}
+
+// Show the editor for adding a note
+function showEditor() {
+    document.getElementById("editor-container").style.display = "flex";
+    document.getElementById("note-title-input").value = ""; // Clear the title input
+    document.getElementById("note-content-input").value = ""; // Clear the content textarea
+}
+
+// Hide the editor
+function hideEditor() {
+    document.getElementById("editor-container").style.display = "none";
+}
+
+// Save a new note
+function saveNote() {
+    const title = document.getElementById("note-title-input").value.trim();
+    const content = document.getElementById("note-content-input").value.trim();
+    const date = new Date().toLocaleString();
+
+    if (!title || !content) {
+        alert("Please provide both a title and content.");
+        return;
+    }
+
+    const note = { title, content, date };
+    notes.push(note);
+
+    saveNotesToStorage();
+    displayNotes(); // Refresh the displayed notes
+    hideEditor();
+}
+
+// Display the list of notes
+function displayNotes() {
+    const notesList = document.getElementById("notes-list");
+    notesList.innerHTML = ""; // Clear the list
+
+    notes.forEach((note, index) => {
+        const noteDiv = document.createElement("div");
+        noteDiv.className = "note-preview";
+        noteDiv.innerHTML = `
+            <h4>${note.title}</h4>
+            <p>${note.content.slice(0, 50)}...</p>
+        `;
+
+        // Attach the event listener to show note details
+        noteDiv.addEventListener("click", () => showNoteDetails(index));
+        notesList.appendChild(noteDiv);
+    });
+}
+
+// Show the details of a selected note
+function showNoteDetails(index) {
+    const note = notes[index];
+    if (!note) {
+        console.error("No note found for index:", index);
+        return;
+    }
+
+    // Update the preview panel with plain text
+    document.getElementById("note-title-display").textContent = note.title || "Untitled Note";
+    document.getElementById("note-date-display").textContent = note.date || "Unknown Date";
+    document.getElementById("note-content-display").textContent = note.content || "No content available.";
+
+    // Make the preview panel active
+    const rightPanel = document.getElementById("right-panel");
+    rightPanel.classList.add("active");
+}
+
+// Initialize the application
+document.addEventListener("DOMContentLoaded", () => {
+    loadNotesFromStorage();
+    document.getElementById("add-note-button").addEventListener("click", showEditor);
+    document.getElementById("save-note-button").addEventListener("click", saveNote);
+    document.getElementById("cancel-note-button").addEventListener("click", hideEditor);
+    displayNotes();
 });

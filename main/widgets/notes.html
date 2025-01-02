@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes | Web Widgets</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="icon" type="image/x-icon" href="../favicon.png">
-    <script src="../cookies/preferences.js" defer></script>
-    <script src="../cookies/noteData.js" defer></script>
-</head>
-<body>
-    <div id="notes-container"></div>
-    <!-- Dropdown menu for settings -->
-    <div class="dropdown">
-        <button class="dropbtn">Settings</button>
-        <div class="dropdown-content">
-            <div id="settings">
-                <!-- Theme toggle button -->
-                <div id="theme-toggle-container">
-                    <button id="theme-toggle">Auto</button>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notes | Web Widgets</title>
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="icon" type="image/x-icon" href="../favicon.png">
+        <script src="../cookies/preferences.js" defer></script>
+    </head>
+
+    <body>
+
+        <body>
+            <center>
+                <h1><input type="text" id="search-box" placeholder="Notes"> <button id="add-note-button">Add
+                        Note</button></h1>
+            </center>
+            <div id="main-container">
+                <!-- Notes List Panel -->
+                <div id="left-panel">
+                    <h2>Notes</h2>
+                    <div id="notes-list"></div>
+                    <button id="add-note-button">Add Note</button>
+                </div>
+
+                <!-- Note Editor -->
+                <div id="editor-container" style="display: none;">
+                    <input type="text" id="note-title-input" placeholder="Note Title"
+                        style="width: 100%; margin-bottom: 10px;">
+                    <textarea id="note-content-input" style="width: 100%; height: 200px;"
+                        placeholder="Write your note here"></textarea>
+                    <button id="save-note-button">Save Note</button>
+                    <button id="cancel-note-button">Cancel</button>
+                </div>
+
+                <!-- Note Preview Panel -->
+                <div id="right-panel">
+                    <h3 id="note-title-display">Note Title</h3>
+                    <p id="note-date-display">Date</p>
+                    <div id="note-content-display">Note content will appear here.</div>
                 </div>
             </div>
-        </div>
-    </div>
-    <button id="add-note">Add Note</button>
-</body>
+
+        </body>
+
 </html>

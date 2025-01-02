@@ -1,22 +1,28 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const mediaElement = document.getElementById('mediaElement'); 
+document.addEventListener('DOMContentLoaded', function () {
+    const mediaElement = document.getElementById('mediaElement');
     const fileInput = document.getElementById('fileInput');
     const originalBackgroundColor = document.body.style.backgroundColor;
 
+    function escapeHTML(str) {
+        return str.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/\"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
     const uploadButton = document.querySelector('.custom-file-upload');
-    uploadButton.addEventListener('click', function(event) {
+    uploadButton.addEventListener('click', function (event) {
         event.preventDefault(); // Prevent default action
         fileInput.click();
     });
 
     const settingsButton = document.querySelector('.dropbtn');
     const dropdownContent = document.querySelector('.dropdown-content');
-    var target = $(this).attr("data-target");
-        $.find(target).hide();
-    settingsButton.addEventListener('click', function() {
+    settingsButton.addEventListener('click', function () {
         dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
     });
-    
+
     const controlsContainer = document.createElement('div');
     controlsContainer.id = 'controlsContainer';
     controlsContainer.style.display = 'none'; // Initially hidden
@@ -24,8 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     controlsContainer.style.marginTop = '10px';
     controlsContainer.style.position = 'absolute'; // Adjust position
     controlsContainer.style.bottom = '20px'; // Adjust bottom position
-    var target = $(this).attr("data-target");
-        $.find(target).hide();
     controlsContainer.style.left = '50%'; // Center horizontally
     controlsContainer.style.transform = 'translateX(-50%)'; // Center horizontally
     controlsContainer.style.transition = 'opacity 0.5s';
@@ -33,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const playPauseButton = document.createElement('button');
     playPauseButton.textContent = 'Pause';
-    playPauseButton.addEventListener('click', function() {
+    playPauseButton.addEventListener('click', function () {
         if (mediaElement.paused) {
             mediaElement.play();
             playPauseButton.textContent = 'Pause';
@@ -55,13 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
     volumeLabel.style.display = 'none';
     volumeLabel.textContent = `Volume: ${Math.round(volumeControl.value * 100)}%`;
 
-    volumeControl.addEventListener('input', function() {
+    volumeControl.addEventListener('input', function () {
         mediaElement.volume = volumeControl.value;
         volumeLabel.textContent = `Volume: ${Math.round(volumeControl.value * 100)}%`;
         volumeLabel.style.display = 'inline';
         volumeLabel.classList.add('show');
         clearTimeout(volumeLabel.hideTimeout);
-        volumeLabel.hideTimeout = setTimeout(function() {
+        volumeLabel.hideTimeout = setTimeout(function () {
             volumeLabel.classList.remove('show');
         }, 2000);
     });
@@ -71,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
     progressBar.min = '0';
     progressBar.max = '100';
     progressBar.value = '0';
-    progressBar.addEventListener('input', function() {
+    progressBar.addEventListener('input', function () {
         const seekTime = (progressBar.value / 100) * mediaElement.duration;
         mediaElement.currentTime = seekTime;
     });
 
-    mediaElement.addEventListener('timeupdate', function() {
+    mediaElement.addEventListener('timeupdate', function () {
         const progress = (mediaElement.currentTime / mediaElement.duration) * 100;
         progressBar.value = progress;
         mediaElement.style.display = 'block';
@@ -87,13 +91,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const rewindButton = document.createElement('button');
     rewindButton.textContent = '-10s';
-    rewindButton.addEventListener('click', function() {
+    rewindButton.addEventListener('click', function () {
         mediaElement.currentTime -= 10;
     });
 
     const fastForwardButton = document.createElement('button');
     fastForwardButton.textContent = '+10s';
-    fastForwardButton.addEventListener('click', function() {
+    fastForwardButton.addEventListener('click', function () {
         mediaElement.currentTime += 10;
     });
 
@@ -106,32 +110,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.body.appendChild(controlsContainer);
 
-    fileInput.addEventListener('change', function(event) {
+    fileInput.addEventListener('change', function (event) {
         const file = event.target.files[0];
         if (file) {
             const url = URL.createObjectURL(file);
-            mediaElement.src = url;
-            var target = $(this).attr("data-target");
-                $.find(target).hide();
-        }
-
-        else {
+            mediaElement.src = escapeHTML(url); // Sanitize the URL
+        } else {
             alert('Invalid file type. Please select a valid video or audio file.');
         }
     });
 
-    mediaElement.addEventListener('play', function() {
-        // Code to show media playback
+    mediaElement.addEventListener('play', function () {
         console.log('Media is now playing');
         controlsContainer.style.display = 'flex';
     });
 
-    mediaElement.addEventListener('pause', function() {
+    mediaElement.addEventListener('pause', function () {
         console.log('Media is paused');
         controlsContainer.style.display = 'flex';
     });
 
-    mediaElement.addEventListener('ended', function() {
+    mediaElement.addEventListener('ended', function () {
         console.log('Media has ended');
         controlsContainer.style.display = 'flex';
         document.body.style.backgroundColor = originalBackgroundColor;
